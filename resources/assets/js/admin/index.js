@@ -21,7 +21,7 @@ import { quillEditor } from 'vue-quill-editor'
 // Vue.component('task', require('./components/Task.vue'));
 // Vue.component('app-header', require('./components/header.vue'));
 
-Vue.component('post-create-edit', require('./components/sidebar.vue'));
+Vue.component('post-create-edit', require('./components/product-create-edit.vue'));
 
 
 

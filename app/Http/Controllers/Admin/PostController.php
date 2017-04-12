@@ -10,22 +10,13 @@ use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-    public function create(Request $request,$type = 'page',$id){
-        if($id == 'add'){
-            $product = new Post('','',$type);
-        } else {
-            $product = Product::find();
+    public function update(Request $request,$type = 'page',$id){
+        $post = new Post('','',$type);
+        if($id != 'add'){
+            $post = Post::find($id);
         }
 
-
-
-        $product->slug = uniqid();
-        if($product->save()){
-            broadcast(new ProductAltered($product))->toOthers();
-            return $product;
-        } else {
-            return response($product->getErrors(),400);
-        }
+        return '';
     }
 
     public function create(Request $request,$type = 'page',$id){
