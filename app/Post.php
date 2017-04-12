@@ -13,7 +13,11 @@ class Post extends Model
     protected static $dirtyRules = [];
     protected static $messages = [];
 
-    function __construct($name = '',$content = '',$type = 'page',$attributes = array())
+    public function creator(){
+        return $this->hasOne('App\User');
+    }
+
+    public function __construct($name = '',$content = '',$type = 'page',$attributes = array())
     {
         parent::__construct($attributes);
         $this->name = $name;

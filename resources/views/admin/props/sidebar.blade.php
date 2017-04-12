@@ -31,8 +31,8 @@
             Content
         </p>
         <ul class="menu-list">
-            <li><a href="/admin/content/pages/">Pages</a></li>
-            <li><a>Blog</a></li>
+            <li><a href="/admin/content/page/">Pages</a></li>
+            <li><a href="/admin/content/blog/">Blogs</a></li>
         </ul>
         <p class="menu-label">
             Other Important Shit

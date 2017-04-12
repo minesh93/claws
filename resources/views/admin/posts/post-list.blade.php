@@ -5,8 +5,16 @@
         @component('admin.props.sidebar')
         @endcomponent
         <div class="column is-10 is-offset-2 content-wrapper">
-            <div class="title">
-                Woot
+            <div class="columns">
+                <div class="column is-10">
+                    <div class="title">
+                        List of {{str_plural($type)}}
+
+                    </div>
+                </div>
+                <div class="column is-2 is-vcentered">
+                    <button class="button is-primary is-large is-fullwidth">Create {{$type}}</button>
+                </div>
             </div>
             <table class="table">
                 <thead>
@@ -27,6 +35,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
     </div>
 @endsection

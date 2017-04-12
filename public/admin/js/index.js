@@ -12018,7 +12018,7 @@ __webpack_require__(35);
 // Vue.component('task', require('./components/Task.vue'));
 // Vue.component('app-header', require('./components/header.vue'));
 
-Vue.component('post-create-edit', __webpack_require__(59));
+Vue.component('post-create-edit', __webpack_require__(77));
 
 var app = new Vue({
     el: '#app',
@@ -58426,104 +58426,8 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 58 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = {
-    props: ['post', 'type'],
-    data: function data() {
-        return {};
-    },
-    mounted: function mounted() {},
-
-    methods: {
-        savePost: function savePost(e) {
-            e.preventDefault();
-            var location = '/admin/content/' + this.post.type + '/add';
-            if (this.post.id != undefined) {
-                location = '/admin/content/' + this.post.type + '/edit';
-            }
-            axios.post(location, this.post).then(function (response) {}).catch(function (error) {});
-        }
-    }
-};
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(60)(
-  /* script */
-  __webpack_require__(58),
-  /* template */
-  __webpack_require__(61),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "C:\\Users\\Minesh Mitha\\Homestead Files\\claws\\resources\\assets\\js\\admin\\components\\product-create-edit.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] product-create-edit.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-676ccf10", Component.options)
-  } else {
-    hotAPI.reload("data-v-676ccf10", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
+/* 58 */,
+/* 59 */,
 /* 60 */
 /***/ (function(module, exports) {
 
@@ -58577,112 +58481,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('main', [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("\n        Create Product\n    ")]), _vm._v(" "), _c('form', {
-    staticClass: "columns",
-    on: {
-      "submit": _vm.savePost
-    }
-  }, [_c('div', {
-    staticClass: "column is-10"
-  }, [_c('div', {
-    staticClass: "field"
-  }, [_c('label', {
-    staticClass: "label"
-  }, [_vm._v("Name")]), _vm._v(" "), _c('p', {
-    staticClass: "control"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.post.name),
-      expression: "post.name"
-    }],
-    staticClass: "input",
-    attrs: {
-      "type": "text",
-      "placeholder": "Some Unique T-Shirt"
-    },
-    domProps: {
-      "value": _vm._s(_vm.post.name)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.post.name = $event.target.value
-      }
-    }
-  })])]), _vm._v(" "), _c('div', {
-    staticClass: "field"
-  }, [_c('label', {
-    staticClass: "label"
-  }, [_vm._v("URL")]), _vm._v(" "), _c('p', {
-    staticClass: "control"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.post.slug),
-      expression: "post.slug"
-    }],
-    staticClass: "input",
-    attrs: {
-      "type": "text",
-      "placeholder": ""
-    },
-    domProps: {
-      "value": _vm._s(_vm.post.slug)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.post.slug = $event.target.value
-      }
-    }
-  })])]), _vm._v(" "), _c('quill-editor', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.post.content),
-      expression: "post.content"
-    }],
-    domProps: {
-      "value": (_vm.post.content)
-    },
-    on: {
-      "input": function($event) {
-        _vm.post.content = $event
-      }
-    }
-  })], 1), _vm._v(" "), _vm._m(0)])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "column is-2"
-  }, [_c('div', {
-    staticClass: "field is-grouped"
-  }, [_c('p', {
-    staticClass: "control"
-  }, [_c('button', {
-    staticClass: "button is-primary",
-    attrs: {
-      "type": "submit"
-    }
-  }, [_vm._v("\n                        Save\n                    ")])])])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-676ccf10", module.exports)
-  }
-}
-
-/***/ }),
+/* 61 */,
 /* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -59305,6 +59104,209 @@ module.exports = function listToStyles (parentId, list) {
   return styles
 }
 
+
+/***/ }),
+/* 76 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    props: ['post', 'type'],
+    data: function data() {
+        return {};
+    },
+    mounted: function mounted() {},
+
+    methods: {
+        savePost: function savePost(e) {
+            e.preventDefault();
+            var location = '/admin/content/' + this.post.type + '/add';
+            if (this.post.id != undefined) {
+                location = '/admin/content/' + this.post.type + '/edit';
+            }
+            axios.post(location, this.post).then(function (response) {}).catch(function (error) {});
+        }
+    }
+};
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(60)(
+  /* script */
+  __webpack_require__(76),
+  /* template */
+  __webpack_require__(78),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\Users\\Minesh Mitha\\Homestead Files\\claws\\resources\\assets\\js\\admin\\components\\product-create-edit.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] product-create-edit.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6cf4ad91", Component.options)
+  } else {
+    hotAPI.reload("data-v-6cf4ad91", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('main', [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("\n        Create Product\n    ")]), _vm._v(" "), _c('form', {
+    staticClass: "columns",
+    on: {
+      "submit": _vm.savePost
+    }
+  }, [_c('div', {
+    staticClass: "column is-10"
+  }, [_c('div', {
+    staticClass: "field"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("Name")]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.post.name),
+      expression: "post.name"
+    }],
+    staticClass: "input",
+    attrs: {
+      "type": "text",
+      "placeholder": "Some Unique T-Shirt"
+    },
+    domProps: {
+      "value": _vm._s(_vm.post.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.post.name = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("URL")]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.post.slug),
+      expression: "post.slug"
+    }],
+    staticClass: "input",
+    attrs: {
+      "type": "text",
+      "placeholder": ""
+    },
+    domProps: {
+      "value": _vm._s(_vm.post.slug)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.post.slug = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('quill-editor', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.post.content),
+      expression: "post.content"
+    }],
+    domProps: {
+      "value": (_vm.post.content)
+    },
+    on: {
+      "input": function($event) {
+        _vm.post.content = $event
+      }
+    }
+  })], 1), _vm._v(" "), _vm._m(0)])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "column is-2"
+  }, [_c('div', {
+    staticClass: "field is-grouped"
+  }, [_c('p', {
+    staticClass: "control"
+  }, [_c('button', {
+    staticClass: "button is-primary",
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("\n                        Save\n                    ")])])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-6cf4ad91", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

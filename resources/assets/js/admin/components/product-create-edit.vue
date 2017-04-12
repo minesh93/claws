@@ -21,7 +21,6 @@
 
                 <quill-editor v-model="post.content"></quill-editor>
 
-
             </div>
             <div class="column is-2">
                 <div class="field is-grouped">

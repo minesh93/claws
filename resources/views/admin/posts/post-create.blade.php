@@ -8,7 +8,6 @@
             <post-create-edit :post="{{$post->toJSON()}}">
 
             </post-create-edit>
-
         </div>
     </div>
 @endsection
