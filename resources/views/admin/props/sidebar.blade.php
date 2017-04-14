@@ -14,29 +14,20 @@
             <li><a>Dashboard</a></li>
         </ul>
         <p class="menu-label">
-            Store
-        </p>
-        <ul class="menu-list">
-            <li><a href="/admin/products">Products</a></li>
-            <li>
-                @if (url()->current() == '/admin/products/')
-                    <ul>
-                        <li><a href="/admin/products/add">Add Product</a></li>
-                    </ul>
-                @endif
-            </li>
-            <li><a>Orders</a></li>
-        </ul>
-        <p class="menu-label">
             Content
         </p>
         <ul class="menu-list">
-            <li><a href="/admin/content/page/">Pages</a></li>
-            <li><a href="/admin/content/blog/">Blogs</a></li>
+            @foreach(PostRegister::getRegister() as $postReg)
+                <li><a href="/admin/content/{{$postReg->name}}/">{{$postReg->listName}}</a></li>
+            @endforeach
         </ul>
         <p class="menu-label">
-            Other Important Shit
+            Settings
         </p>
+
+        <ul class="menu-list">
+                <li><a href="/admin/theme/">Theme</a></li>
+        </ul>
     </aside>
 </div>
 

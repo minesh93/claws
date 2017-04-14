@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Claws;
 use Validator;
 use Illuminate\Support\MessageBag;
 

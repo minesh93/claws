@@ -11,9 +11,10 @@
 |
 */
 
-// Route::get('/tasks',function(){
-// 	return ['1','1','1','2'];
-// });
+PostRegister::register([
+    'name' => 'page',
+    'urlBase' => '/',
+]);
 
 
 Route::group(['namespace'=>'Admin','prefix'=>'admin'], function () {
@@ -33,6 +34,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'], function () {
         Route::get('/content/{type}','PostController@getPosts');
         Route::get('/content/{type}/{id}','PostController@create');
         Route::get('/contents/{type}/add','PostController@create');
+        Route::post('/slug','PostController@slugGen');
 
         Route::post('/content/{type}/{id}','PostController@update');
         Route::post('/contents/{type}/add','PostController@update');
@@ -40,5 +42,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'], function () {
     });
 
 });
+
+Route::get('/{any}','SiteController@serveSite')->where('any', '.*');
 
 

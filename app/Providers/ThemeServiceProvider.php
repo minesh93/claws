@@ -3,11 +3,12 @@
 namespace Claws\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use \Claws\Support\Theme;
 
-class AppServiceProvider extends ServiceProvider
+class ThemeServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap any application services.
+     * Bootstrap the application services.
      *
      * @return void
      */
@@ -17,12 +18,12 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register any application services.
+     * Register the application services.
      *
      * @return void
      */
     public function register()
     {
-        //
+        $this->app->bind('theme',Theme::class);
     }
 }

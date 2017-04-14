@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Claws;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Claws;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,7 +26,7 @@ class Task extends Model
     ];
 
     public function user(){
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('Claws\User');
     }
 
 	function __construct($name = '',$description = '',$attributes = array())

@@ -171,11 +171,13 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Claws\Providers\AppServiceProvider::class,
+        Claws\Providers\AuthServiceProvider::class,
+        Claws\Providers\BroadcastServiceProvider::class,
+        Claws\Providers\EventServiceProvider::class,
+        Claws\Providers\RouteServiceProvider::class,
+        Claws\Providers\PostRegisterServiceProvider::class,
+        Claws\Providers\ThemeServiceProvider::class,
 
     ],
 
@@ -213,6 +215,7 @@ return [
         'Mail' => Illuminate\Support\Facades\Mail::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Password' => Illuminate\Support\Facades\Password::class,
+        'PostRegister' => \Claws\Facades\PostRegister::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
         'Redis' => Illuminate\Support\Facades\Redis::class,
@@ -222,6 +225,7 @@ return [
         'Schema' => Illuminate\Support\Facades\Schema::class,
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
+        'Theme' => \Claws\Facades\Theme::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,

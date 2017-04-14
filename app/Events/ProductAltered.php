@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Events;
+namespace Claws\Events;
 
-use App\Product;
+use Claws\Product;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;

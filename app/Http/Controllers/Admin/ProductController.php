@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Claws\Http\Controllers\Admin;
 
-use App\Events\ProductAltered;
-use App\Product;
+use Claws\Events\ProductAltered;
+use Claws\Product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Claws\Http\Controllers\Controller;
 use Auth;
 
 
