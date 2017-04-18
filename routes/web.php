@@ -39,6 +39,9 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'], function () {
         Route::post('/content/{type}/{id}','PostController@update');
         Route::post('/contents/{type}/add','PostController@update');
 
+        Route::get('/theme','ThemeController@viewThemes');
+        Route::post('/theme','ThemeController@applyTheme');
+
     });
 
 });

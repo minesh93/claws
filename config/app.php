@@ -177,6 +177,7 @@ return [
         Claws\Providers\EventServiceProvider::class,
         Claws\Providers\RouteServiceProvider::class,
         Claws\Providers\PostRegisterServiceProvider::class,
+        Claws\Providers\SettingsServiceProvider::class,
         Claws\Providers\ThemeServiceProvider::class,
 
     ],
@@ -224,6 +225,7 @@ return [
         'Route' => Illuminate\Support\Facades\Route::class,
         'Schema' => Illuminate\Support\Facades\Schema::class,
         'Session' => Illuminate\Support\Facades\Session::class,
+        'Settings' => \Claws\Facades\Settings::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'Theme' => \Claws\Facades\Theme::class,
         'URL' => Illuminate\Support\Facades\URL::class,
