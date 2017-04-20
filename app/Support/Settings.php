@@ -15,7 +15,13 @@ class Settings{
         $this->path = base_path() . '\themes';
     }
 
-    public function get($setting){
-        return Setting::where('key',$setting)->get()->first()->value;
+    public static function get($key){
+        return Setting::where('key',$key)->get()->first()->value;
+    }
+
+    public static function set($key,$value){
+        $setting = Setting::where('key',$key)->get()->first();
+        $setting->value = $value;
+        $setting->save();
     }
 }

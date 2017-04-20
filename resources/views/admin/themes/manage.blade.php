@@ -25,6 +25,7 @@
                             <form method="POST" action="/admin/theme" class="card-footer">
                                 <p class="card-footer-item">
                                     {{csrf_field()}}
+                                    <input type="hidden" name="theme" value="{{$theme->id}}">
                                     <button type="submit" class="button is-block is-fullwidth is-primary" href="#">Activate Theme</button>
                                 </p>
                             </form>

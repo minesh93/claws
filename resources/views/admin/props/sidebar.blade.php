@@ -26,7 +26,7 @@
         </p>
 
         <ul class="menu-list">
-                <li><a href="/admin/theme/">Theme</a></li>
+            <li><a href="/admin/theme/">Theme</a></li>
         </ul>
     </aside>
 </div>

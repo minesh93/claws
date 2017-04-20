@@ -18,7 +18,7 @@ class ThemeController extends Controller
     }
 
     public function applyTheme(Request $request){
-        dump($request->input());
-        return 'WIP';
+        Theme::applyTheme($request->input('theme'));
+        return view('admin.themes.manage');
     }
 }

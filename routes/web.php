@@ -16,6 +16,9 @@ PostRegister::register([
     'urlBase' => '/',
 ]);
 
+Route::get('/theme-script/{any}','SiteController@handleScript')->where('any', '.*');
+Route::get('/theme-style/{any}','SiteController@handleStyle')->where('any', '.*');
+
 
 Route::group(['namespace'=>'Admin','prefix'=>'admin'], function () {
     Route::get('/login', function () {
