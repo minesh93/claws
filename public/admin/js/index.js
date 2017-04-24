@@ -23310,9 +23310,19 @@ var app = new Vue({
     components: {
         quillEditor: __WEBPACK_IMPORTED_MODULE_0_vue_quill_editor__["quillEditor"]
     },
+    data: function data() {
+        return {
+            rendered: false,
+            meta: {}
+        };
+    },
     mounted: function mounted() {
-        console.log("woot");
-    }
+        console.log("rendered");
+        this.meta = JSON.parse(this.$el.dataset.meta);
+        this.rendered = true;
+    },
+
+    methods: {}
 });
 
 /***/ }),
@@ -24348,19 +24358,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
-    props: ['mount-p', 'mount-t'],
+    props: ['mount-p', 'mount-t', 'mount-m'],
     data: function data() {
         return {
+            renderMeta: false,
             post: {},
-            mount: {},
             type: {}
         };
     },
-    created: function created() {
+    mounted: function mounted() {
+        console.log("MOUNTED");
         this.post = this.$options.propsData.mountP;
         this.type = this.$options.propsData.mountT;
+        this.post.meta = this.$options.propsData.mountM;
+        this.renderMeta = true;
     },
 
     methods: {
@@ -50391,7 +50408,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.post.content = $event
       }
     }
-  })], 1), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), (_vm.renderMeta) ? _c('div', {
+    staticClass: "meta-section"
+  }, [_vm._t("default")], 2) : _vm._e()], 1), _vm._v(" "), _c('div', {
     staticClass: "column is-2"
   }, [_c('div', {
     staticClass: "columns is-multiline"

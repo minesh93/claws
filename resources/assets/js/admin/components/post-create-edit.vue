@@ -22,6 +22,10 @@
 
                 <quill-editor v-model="post.content"></quill-editor>
 
+                <div class="meta-section" v-if="renderMeta">
+                    <slot></slot>
+                </div>
+
             </div>
             <div class="column is-2">
                 <div class="columns is-multiline">
@@ -44,17 +48,20 @@
 
 <script>
     export default {
-        props:['mount-p','mount-t'],
-        data(){
+        props:['mount-p','mount-t','mount-m'],
+        data:function(){
             return {
+                renderMeta:false,
                 post:{},
-                mount:{},
                 type:{},
             }
         },
-        created() {
+        mounted() {
+            console.log("MOUNTED");
             this.post = this.$options.propsData.mountP;
             this.type = this.$options.propsData.mountT;
+            this.post.meta = this.$options.propsData.mountM;
+            this.renderMeta = true;
 
         },
         methods:{
@@ -86,7 +93,7 @@
                 }).catch((error)=>{
 
                 });
-            }
+            },
         }
     }
 </script>

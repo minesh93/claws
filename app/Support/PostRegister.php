@@ -6,6 +6,8 @@ namespace Claws\Support;
 class PostRegister{
 
     protected $registered = [];
+    private $currentMeta = '';
+    private $currentPost = '';
 
     public function greet(){
         dd('aaa');
@@ -31,6 +33,7 @@ class PostRegister{
             'listTitle' => "List of {$postTitlePlural}",
             'urlBase' => "/{$post['name']}/",
             'listName' => $postTitlePlural,
+            'meta' => []
         ];
 
         $postToRegister = $post + $defaultPost;
@@ -40,6 +43,39 @@ class PostRegister{
 
     public function isRegistered($post){
         return array_key_exists($post,$this->registered);
+    }
+
+    public function addPostMeta($post,$key,$template){
+        $this->registered[$post]->meta[$key] = [];
+        $this->registered[$post]->meta[$key]['template'] = $template;
+        $this->registered[$post]->meta[$key]['data'] = new \StdClass();
+
+        $this->currentMeta = $key;
+        $this->currentPost = $post;
+
+        ob_start();
+            include Theme::getThemePath() . "/" . $this->registered[$post]->meta[$key]['template'];
+        ob_get_clean();
+    }
+
+    public function getMetaObject($post){
+        $meta = [];
+        foreach ($this->registered[$post]->meta as $key => $value) {
+            $meta[$key] = $value['data'];
+        }
+        return (object) $meta;
+    }
+
+    public function getMetaTemplates($post){
+        foreach ($this->registered[$post]->meta as $key => $value) {
+            $this->currentMeta = $key;
+            $this->currentPost = $post;
+            include Theme::getThemePath() . "/" . $this->registered[$post]->meta[$key]['template'];
+        }
+    }
+
+    public function addMetaField($key){
+        $this->registered[$this->currentPost]->meta[$this->currentMeta]['data']->{$key} = '';
     }
 
     public function getRegisteredPost($post){

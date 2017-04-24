@@ -30,7 +30,17 @@ const app = new Vue({
     components: {
         quillEditor
     },
+    data(){
+    	return{
+    		rendered:false,
+    		meta:{},
+    	}
+    },
     mounted(){
-        console.log("woot");
+        console.log("rendered");
+        this.meta = JSON.parse(this.$el.dataset.meta);
+        this.rendered = true;
+    },
+    methods:{
     }
 });

@@ -12,7 +12,7 @@ class Theme{
     public $activeTheme = [];
     public $styles = [];
     public $scripts = [];
-    private $themeBase = '';
+    private static $themeBase = '';
 
     function __construct()
     {
@@ -21,8 +21,8 @@ class Theme{
 
     public function bootTheme(){
         $this->activeTheme = Settings::get('theme');
-        $this->themeBase = $this->path . "/" . $this->activeTheme;
-        include $this->themeBase . "/" . $this->loaderFile;
+        self::$themeBase = $this->path . "/" . $this->activeTheme;
+        include self::$themeBase . "/" . $this->loaderFile;
     }
 
     public function listThemes(){
@@ -39,8 +39,8 @@ class Theme{
         return $this->themes;
     }
 
-    public function getThemePath(){
-        return $this->themeBase;
+    public static function getThemePath(){
+        return self::$themeBase;
     }
 
     public function applyTheme($theme){

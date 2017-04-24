@@ -8,6 +8,7 @@ use Claws\Product;
 use Illuminate\Http\Request;
 use Claws\Http\Controllers\Controller;
 use Auth;
+use Theme;
 
 class PostController extends Controller
 {
@@ -23,23 +24,32 @@ class PostController extends Controller
         $post->content = $request->input('content');
         $post->slug = $request->input('slug');
 
+        $post->meta = $request->input('meta');
+        $post->meta = serialize($post->meta);
+
         $post->save();
+        $post->meta = unserialize($post->meta);
 
         return $post;
     }
 
     public function create(Request $request,$type = 'page',$id){
+
+        Theme::bootTheme();
+
         if(!PostRegister::isRegistered($type)){
             return 'post not registered';
         }
 
         $data = [
             'post' => new Post('','',$type),
-            'type' => PostRegister::getRegisteredPost($type)
+            'type' => PostRegister::getRegisteredPost($type),
+            'meta' => json_encode(PostRegister::getMetaObject($type))
         ];
 
         if($id !== 'add') {
             $data['post'] = Post::find($id);
+            $data['meta'] = json_encode(unserialize($data['post']->meta));
         }
 
         return view('admin.posts.post-create',$data);
@@ -54,6 +64,9 @@ class PostController extends Controller
     }
 
     public function getPosts(Request $request,$type = 'page'){
+
+        Theme::bootTheme();
+
         if(!PostRegister::isRegistered($type)){
             return 'post not registered';
         }
