@@ -3,7 +3,6 @@
 /public/hot
 /storage/*.key
 /vendor
-/themes/*
 /.idea
 Homestead.json
 Homestead.yaml
