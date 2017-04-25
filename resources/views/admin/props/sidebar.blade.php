@@ -22,12 +22,19 @@
             @endforeach
         </ul>
         <p class="menu-label">
-            Settings
+            Site
         </p>
-
         <ul class="menu-list">
             <li><a href="/admin/theme/">Theme</a></li>
         </ul>
+
+        <p class="menu-label">
+            Settings
+        </p>
+        <ul class="menu-list">
+            <li><a href="/admin/settings/">General</a></li>
+        </ul>
+
     </aside>
 </div>
 

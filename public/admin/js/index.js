@@ -23304,6 +23304,7 @@ __webpack_require__(42);
 // Vue.component('app-header', require('./components/header.vue'));
 
 Vue.component('post-create-edit', __webpack_require__(58));
+Vue.component('settings-general', __webpack_require__(77));
 
 var app = new Vue({
     el: '#app',
@@ -23318,7 +23319,9 @@ var app = new Vue({
     },
     mounted: function mounted() {
         console.log("rendered");
-        this.meta = JSON.parse(this.$el.dataset.meta);
+        if (this.$el.dataset.meta !== undefined) {
+            this.meta = JSON.parse(this.$el.dataset.meta);
+        }
         this.rendered = true;
     },
 
@@ -59351,6 +59354,249 @@ __webpack_require__(19);
 __webpack_require__(20);
 module.exports = __webpack_require__(21);
 
+
+/***/ }),
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    props: ['posts', 'mount-s'],
+    data: function data() {
+        return {
+            settings: {}
+        };
+    },
+    mounted: function mounted() {
+        this.settings = this.$options.propsData.mountS;
+    },
+
+    methods: {
+        saveSettings: function saveSettings(e) {
+            e.preventDefault();
+            axios.post('/admin/settings', this.settings).then(function (response) {}).catch(function (error) {});
+        },
+        addImage: function addImage() {}
+    }
+};
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(15)(
+  /* script */
+  __webpack_require__(76),
+  /* template */
+  __webpack_require__(78),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "C:\\Users\\Minesh Mitha\\Homestead Files\\claws\\resources\\assets\\js\\admin\\components\\settings-general.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] settings-general.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-eac04d8c", Component.options)
+  } else {
+    hotAPI.reload("data-v-eac04d8c", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('main', [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("\n        General Settings\n    ")]), _vm._v(" "), _c('form', [_c('div', {
+    staticClass: "subtitle"
+  }, [_vm._v("\n            Homepage\n        ")]), _vm._v(" "), _c('div', {
+    staticClass: "field is-horizontal"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "field-body"
+  }, [_c('div', {
+    staticClass: "field"
+  }, [_c('div', {
+    staticClass: "control"
+  }, [_c('label', {
+    staticClass: "checkbox"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.settings.use_custom_home),
+      expression: "settings.use_custom_home"
+    }],
+    attrs: {
+      "type": "checkbox"
+    },
+    domProps: {
+      "checked": Array.isArray(_vm.settings.use_custom_home) ? _vm._i(_vm.settings.use_custom_home, null) > -1 : (_vm.settings.use_custom_home)
+    },
+    on: {
+      "click": function($event) {
+        var $$a = _vm.settings.use_custom_home,
+          $$el = $event.target,
+          $$c = $$el.checked ? (true) : (false);
+        if (Array.isArray($$a)) {
+          var $$v = null,
+            $$i = _vm._i($$a, $$v);
+          if ($$c) {
+            $$i < 0 && (_vm.settings.use_custom_home = $$a.concat($$v))
+          } else {
+            $$i > -1 && (_vm.settings.use_custom_home = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+          }
+        } else {
+          _vm.settings.use_custom_home = $$c
+        }
+      }
+    }
+  }), _vm._v("\n                        (Check to use post)\n                    ")])])])])]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.settings.use_custom_home),
+      expression: "settings.use_custom_home"
+    }],
+    staticClass: "field is-horizontal"
+  }, [_vm._m(1), _vm._v(" "), _c('div', {
+    staticClass: "field-body"
+  }, [_c('div', {
+    staticClass: "field is-narrow"
+  }, [_c('div', {
+    staticClass: "control"
+  }, [_c('div', {
+    staticClass: "select is-fullwidth"
+  }, [_c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.settings.custom_home_id),
+      expression: "settings.custom_home_id"
+    }],
+    on: {
+      "change": function($event) {
+        _vm.settings.custom_home_id = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        })[0]
+      }
+    }
+  }, _vm._l((_vm.posts), function(post) {
+    return _c('option', {
+      domProps: {
+        "value": post.id
+      }
+    }, [_vm._v("\n                                " + _vm._s(post.name) + "\n                            ")])
+  }))])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control"
+  }, [_c('button', {
+    staticClass: "button is-primary",
+    on: {
+      "click": _vm.saveSettings
+    }
+  }, [_vm._v("Save")])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "field-label is-paddingless"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("Use custom homepage")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "field-label is-normal"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("Select Post")])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-eac04d8c", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

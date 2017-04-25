@@ -45,10 +45,14 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'], function () {
         Route::get('/theme','ThemeController@viewThemes');
         Route::post('/theme','ThemeController@applyTheme');
 
+        Route::get('/settings','AdminController@viewSettings');
+        Route::post('/settings','AdminController@updateSettings');
     });
 
 });
 
+Route::get('/','SiteController@serveHome');
 Route::get('/{any}','SiteController@serveSite')->where('any', '.*');
+
 
 

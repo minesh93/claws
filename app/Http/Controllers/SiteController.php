@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Claws\Post;
 use View;
 use Theme;
+use Settings;
 
 class SiteController extends Controller
 {
@@ -20,8 +21,22 @@ class SiteController extends Controller
         if($post != null){
             View::addNamespace('theme',base_path() . '/themes/' . 'lion' . '/views/');
             $register = PostRegister::getRegisteredPost($post->type);
+            $post->meta = unserialize($post->meta);
             View::share('post', $post);
             return view("theme::{$register->template}");
+        }
+    }
+
+    public function serveHome(Request $request){
+        if(Settings::get('use_custom_home')){
+            View::addNamespace('theme',base_path() . '/themes/' . 'lion' . '/views/');
+            $post = Post::find(Settings::get('custom_home_id'));
+            $register = PostRegister::getRegisteredPost($post->type);
+            $post->meta = unserialize($post->meta);
+            View::share('post', $post);
+            return view("theme::{$register->template}");
+        } else {
+            dd('todo');
         }
     }
 

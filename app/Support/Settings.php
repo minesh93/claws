@@ -16,12 +16,20 @@ class Settings{
     }
 
     public static function get($key){
-        return Setting::where('key',$key)->get()->first()->value;
+        if(is_array($key)){
+            return Setting::whereIn('key',$key)->get();
+        } else {
+            return Setting::where('key',$key)->get()->first()->value;
+        }
     }
 
     public static function set($key,$value){
         $setting = Setting::where('key',$key)->get()->first();
-        $setting->value = $value;
+        if($setting == null){
+            $setting = new Setting($key,$value);
+        }else {
+            $setting->value = $value;
+        }
         $setting->save();
     }
 }

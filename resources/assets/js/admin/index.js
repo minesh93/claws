@@ -22,6 +22,7 @@ import { quillEditor } from 'vue-quill-editor'
 // Vue.component('app-header', require('./components/header.vue'));
 
 Vue.component('post-create-edit', require('./components/post-create-edit.vue'));
+Vue.component('settings-general', require('./components/settings-general.vue'));
 
 
 
@@ -38,7 +39,9 @@ const app = new Vue({
     },
     mounted(){
         console.log("rendered");
-        this.meta = JSON.parse(this.$el.dataset.meta);
+        if(this.$el.dataset.meta !== undefined){
+        	this.meta = JSON.parse(this.$el.dataset.meta);
+        }
         this.rendered = true;
     },
     methods:{
