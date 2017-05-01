@@ -61,13 +61,13 @@ class Theme{
 
     public function renderStyles(){
         foreach ($this->styles as $style) {
-            echo '<link rel="stylesheet" type="text/css" href="theme-style/'.$style.'">';
+            echo '<link rel="stylesheet" type="text/css" href="/theme-style/'.$style.'">';
         }
     }
 
     public function renderScripts(){
         foreach ($this->scripts as $script) {
-            echo '<script type="text/javascript" src="theme-script/'.$script.'"></script>';
+            echo '<script type="text/javascript" src="/theme-script/'.$script.'"></script>';
         }
     }
 }

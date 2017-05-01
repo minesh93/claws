@@ -3,6 +3,7 @@
 
 
 use Claws\Support\Theme;
+use Claws\Support\Settings;
 use Claws\Support\PostRegister;
 
 
@@ -11,4 +12,9 @@ use Claws\Support\PostRegister;
 
 function editorContent($data){
 	return "<div class='ql-editor'>".$data."</div>";
+}
+
+
+function siteTitle(){
+	return Settings::get('site_name');
 }

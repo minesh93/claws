@@ -1,5 +1,8 @@
 @import "variables";
 
+body
+    font-family: 'Lato';
+
 #login-box
     width: 100%;
     max-width: 450px;
@@ -12,15 +15,25 @@
     background: #34495e;
     height: 100vh;
     position: fixed;
-    *,a,button.is-link
+    *
+        color: #ffffff;
+    a
         color: #ffffff;
         text-decoration: none;
-
-
+        &:hover
+            background: none;
+        &.is-active
+            background: none;
+            color: $turquoise;
+            
 .content-wrapper
     padding: 30px;
 
+.ql-container
+    max-height: 300px;
+    overflow-y: auto;
 
 
 .meta-section
     margin: 30px auto;
+

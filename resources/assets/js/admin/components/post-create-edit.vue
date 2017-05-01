@@ -5,7 +5,6 @@
         </div>
         <form class="columns" v-on:submit="savePost">
             <div class="column is-10">
-
                 <div class="field">
                     <label class="label">Name</label>
                     <p class="control">
@@ -25,8 +24,8 @@
                 <div class="meta-section" v-if="renderMeta">
                     <slot></slot>
                 </div>
-
             </div>
+            
             <div class="column is-2">
                 <div class="columns is-multiline">
                     <div class="column is-12">
@@ -57,7 +56,6 @@
             }
         },
         mounted() {
-            console.log("MOUNTED");
             this.post = this.$options.propsData.mountP;
             this.type = this.$options.propsData.mountT;
             this.post.meta = this.$options.propsData.mountM;
@@ -68,13 +66,19 @@
             savePost(e){
                 e.preventDefault();
                 let location = `/admin/content/${this.post.type}/add`;
+                let newPost = true;
                 if(this.post.id != undefined){
+                    newPost = false;
                     location = `/admin/content/${this.post.type}/${this.post.id}`;
                 }
                 axios.post(location,this.post).then((response)=>{
-
+                    this.$parent.$emit('make-notification',{text:'Post Saved!',type:'is-success'});
+                    this.post = response.data;
+                    if(newPost){
+                       window.location = `/admin/content/${this.post.type}/${this.post.id}`; 
+                    }
                 }).catch((error)=>{
-
+                    this.$parent.$emit('make-notification',{text:'Something Just Broke...',type:'is-danger'});
                 });
             },
 

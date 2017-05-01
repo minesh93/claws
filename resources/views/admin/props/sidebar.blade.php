@@ -18,7 +18,15 @@
         </p>
         <ul class="menu-list">
             @foreach(PostRegister::getRegister() as $postReg)
-                <li><a href="/admin/content/{{$postReg->name}}/">{{$postReg->listName}}</a></li>
+                <li>
+                    <a class="@if(strpos(url()->current(),$postReg->name)) is-active @endif" href="/admin/content/{{$postReg->name}}/">{{$postReg->listName}}</a>
+                    @if(strpos(url()->current(),$postReg->name))
+                        <ul>
+                            <li><a class="@if(Request::is('admin/content/'.$postReg->name.'/add')) is-active @endif" href="/admin/content/{{$postReg->name}}/add">{{$postReg->createText}}</a></li>
+                            <li><a class="@if(Request::is('admin/content/'.$postReg->name)) is-active @endif" href="/admin/content/{{$postReg->name}}/">{{$postReg->listTitle}}</a></li>
+                        </ul>
+                    @endif
+                </li>
             @endforeach
         </ul>
         <p class="menu-label">

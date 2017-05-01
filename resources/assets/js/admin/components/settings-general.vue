@@ -42,6 +42,19 @@
                 </div>
             </div>
 
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Site Name</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="text" v-model="settings.site_name" placeholder="Awesome Website Name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="field">
                 <p class="control">
                     <button class="button is-primary" v-on:click="saveSettings">Save</button>
@@ -66,7 +79,7 @@
             saveSettings(e){
                 e.preventDefault();
                 axios.post('/admin/settings',this.settings).then((response)=>{
-
+                    this.$parent.$emit('make-notification',{text:'Setting Updated!',type:'is-success'});
                 }).catch((error)=>{
 
                 });

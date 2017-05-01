@@ -9,21 +9,15 @@ require('./bootstrap');
 // import listen from './listen';
 import { quillEditor } from 'vue-quill-editor'
 
-// Vue.component('alert', require('./components/alert.vue'));
-// Vue.component('quill', require('./components/Quill.vue'));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example', require('./components/Example.vue'));
-// Vue.component('task', require('./components/Task.vue'));
-// Vue.component('app-header', require('./components/header.vue'));
-
 Vue.component('post-create-edit', require('./components/post-create-edit.vue'));
+Vue.component('notification', require('./components/notification.vue'));
 Vue.component('settings-general', require('./components/settings-general.vue'));
-
 
 
 const app = new Vue({
@@ -34,6 +28,11 @@ const app = new Vue({
     data(){
     	return{
     		rendered:false,
+            notification:{
+                visible:false,
+                text:'',
+                type:'',
+            },
     		meta:{},
     	}
     },
@@ -43,7 +42,32 @@ const app = new Vue({
         	this.meta = JSON.parse(this.$el.dataset.meta);
         }
         this.rendered = true;
+
+        this.$on('close-notification',()=>{
+            this.closeNotification()
+        });
+
+        this.$on('make-notification',(payload)=>{
+            this.makeNotification(payload.text,payload.type);
+        });
+
+    },
+     events: {
+        test: function (argument) {
+            console.log("derp");
+        },
     },
     methods:{
+        incrementTotal(){
+            console.log('inc derp');
+        },
+        makeNotification(text,type = 'is-primary'){
+            this.notification.text = text;
+            this.notification.type = type;
+            this.notification.visible = true;
+        },
+        closeNotification(){
+            this.notification.visible = false;
+        }
     }
 });

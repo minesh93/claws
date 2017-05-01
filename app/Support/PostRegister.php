@@ -1,7 +1,7 @@
 <?php
 
 namespace Claws\Support;
-
+use Theme;
 
 class PostRegister{
 
@@ -11,6 +11,10 @@ class PostRegister{
 
     public function greet(){
         dd('aaa');
+    }
+
+    public function __construct(){
+        // Theme::bootTheme();
     }
 
     public function register($post){

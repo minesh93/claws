@@ -12,9 +12,10 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Post')->create([
+        factory('Claws\Post')->create([
             'name' => 'Some Page',
             'slug' => uniqid(),
+            'type' => 'page',
             'user_id' => 1
         ]);
         // $this->call(UsersTableSeeder::class);

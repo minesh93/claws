@@ -14,12 +14,12 @@ class SiteController extends Controller
 
     public function __construct(){
         Theme::bootTheme();
+        View::addNamespace('theme',Theme::getThemePath() . '/views/');
     }
 
     public function serveSite(Request $request,$path){
         $post = Post::where('slug',$path)->get()->first();
         if($post != null){
-            View::addNamespace('theme',base_path() . '/themes/' . 'lion' . '/views/');
             $register = PostRegister::getRegisteredPost($post->type);
             $post->meta = unserialize($post->meta);
             View::share('post', $post);
@@ -29,14 +29,15 @@ class SiteController extends Controller
 
     public function serveHome(Request $request){
         if(Settings::get('use_custom_home')){
-            View::addNamespace('theme',base_path() . '/themes/' . 'lion' . '/views/');
             $post = Post::find(Settings::get('custom_home_id'));
             $register = PostRegister::getRegisteredPost($post->type);
             $post->meta = unserialize($post->meta);
             View::share('post', $post);
             return view("theme::{$register->template}");
         } else {
-            dd('todo');
+            $post = new Post();
+            View::share('post', $post);
+            return view("theme::home");
         }
     }
 

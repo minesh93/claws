@@ -22,3 +22,10 @@ $factory->define(Claws\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(Claws\Setting::class, function (Faker\Generator $faker) {
+    return [
+        'key' => str_random(10),
+        'value' => str_random(10),
+    ];
+});

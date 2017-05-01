@@ -14,6 +14,8 @@ class PostController extends Controller
 {
     public function update(Request $request,$type = 'page',$id){
 
+        Theme::bootTheme();
+
         $post = new Post('','',$type);
         $post->user_id = Auth::user()->id;
 
@@ -22,7 +24,7 @@ class PostController extends Controller
         }
         $post->name = $request->input('name');
         $post->content = $request->input('content');
-        $post->slug = $request->input('slug');
+        $post->slug = $this->createSlug($request->input('slug'),$type);
 
         $post->meta = $request->input('meta');
         $post->meta = serialize($post->meta);
@@ -56,8 +58,12 @@ class PostController extends Controller
     }
 
     public function slugGen(Request $request){
-        $register =  PostRegister::getRegisteredPost($request->input('type'));
-        $slug = $register->urlBase . str_slug($request->input('name'));
+        return $this->createSlug($request->input('name'),$request->input('type'));
+    }
+
+    public function createSlug($text,$type){
+        $register = PostRegister::getRegisteredPost($type);
+        $slug = $register->urlBase . str_slug($text);
         $slug = ltrim($slug,'/');
         $slug = rtrim($slug,'/');
         return $slug;

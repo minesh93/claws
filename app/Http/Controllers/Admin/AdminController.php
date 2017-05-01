@@ -21,7 +21,7 @@ class AdminController extends Controller
 
 	public function viewSettings(Request $request){
 		$posts = Post::get(['name','id']);
-		$settings = Settings::get(['use_custom_home','custom_home_id']);
+		$settings = Settings::get(['use_custom_home','custom_home_id','site_name']);
 
 		$keyed = $settings->mapWithKeys(function ($setting) {
 		    return [$setting['key'] => $setting['value']];
