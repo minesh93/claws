@@ -1,19 +1,24 @@
-<div class="sidebar">
-    <h2>Claws Admin</h2>
+<div class="column is-2 sidebar">
+    <div class="title">
+        Claws
+    </div>
+    <div class="subtitle">
+        Admin
+    </div>
     <aside class="menu">
-        <p class="category-split">
-            <i class="fa fa-tachometer" aria-hidden="true"></i> General
+        <p class="menu-label">
+            General
         </p>
         <ul class="menu-list">
             <li><a>Dashboard</a></li>
         </ul>
-        <p class="category-split">
-            <i class="fa fa-file-text" aria-hidden="true"></i> Content
+        <p class="menu-label">
+            Content
         </p>
-        <ul class="content-menu">
+        <ul class="menu-list">
             @foreach(PostRegister::getRegister() as $postReg)
                 <li>
-                    <a class="category-split" v-on:click="activeMenu = type.name"><i v-bind:class="['fa',type.icon]" aria-hidden="true"></i> {{$postReg->listName}}</a>
+                    <a class="@if(strpos(url()->current(),$postReg->name)) is-active @endif" href="/admin/content/{{$postReg->name}}/">{{$postReg->listName}}</a>
                     @if(strpos(url()->current(),$postReg->name))
                         <ul>
                             <li><a class="@if(Request::is('admin/content/'.$postReg->name.'/add')) is-active @endif" href="/admin/content/{{$postReg->name}}/add">{{$postReg->createText}}</a></li>
@@ -23,15 +28,15 @@
                 </li>
             @endforeach
         </ul>
-        <p class="category-split">
+        <p class="menu-label">
             Site
         </p>
         <ul class="menu-list">
             <li><a href="/admin/theme/">Theme</a></li>
         </ul>
 
-        <p class="category-split">
-            <i class="fa fa-cogs" aria-hidden="true"></i> Settings
+        <p class="menu-label">
+            Settings
         </p>
         <ul class="menu-list">
             <li><a href="/admin/settings/">General</a></li>
@@ -39,5 +44,4 @@
 
     </aside>
 </div>
-
 

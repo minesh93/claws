@@ -28,6 +28,9 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'], function () {
     Route::post('/login', 'LoginController@authenticate');
 
     Route::group(['middleware' => 'admin'],function (){
+
+        Route::get('/content-types','AdminController@getContentTypes');
+
         Route::get('/dashboard', 'AdminController@dashboard');
         Route::post('/products','ProductController@create');
         Route::get('/products','ProductController@getProducts');

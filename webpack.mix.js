@@ -17,4 +17,4 @@ mix.js('resources/assets/js/admin/index.js', 'public/admin/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
     .sass('resources/assets/sass/admin/app.sass', 'public/admin/css')
     .sass('resources/assets/sass/test.sass', 'public/css')
-    .sass('node_modules/bulma/bulma.sass','public/admin/css');
+    .copy('node_modules/font-awesome/fonts', 'public/fonts');
